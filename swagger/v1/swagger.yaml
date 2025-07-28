@@ -1,0 +1,41 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/auth/request_link":
+    post:
+      summary: Send Magic Link if user exists
+      tags:
+      - Authentication
+      parameters: []
+      responses:
+        '200':
+          description: Magic link sent
+        '401':
+          description: User not allowed
+        '422':
+          description: Error occurred
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                organization_id:
+                  type: string
+              required:
+              - email
+              - organization_id
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: 1234
+  host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
+  port: <%= ENV['POSTGRES_PORT'] || 5433 %>
+
+development:
+  <<: *default
+  database: b2b_auth_development
+
+test:
+  <<: *default
+  database: b2b_auth_test
+
+production:
+  <<: *default
+  database: code_coverage_production
+  pool: 20

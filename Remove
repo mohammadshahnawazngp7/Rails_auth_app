@@ -1,0 +1,42 @@
+"token"=>"PiEdnhKxEU-Yde3QtDSEynJU6kFns4YQBEsrEvAKDBBc"
+
+
+member id "member-test-99a60eec-dc8e-4a64-bd06-2d978b134919"
+
+org id "organization-test-4eecd774-c369-4aa6-bd12-4c3cb44bf7f4"
+
+
+session "ivcmWhD0PMqRicJhq7KyX-g8HyXc-HPCQHH8UtB4yX0q"
+
+
+sm id = 151384
+
+
+
+ require 'stytch'
+3.2.1 :002 >
+3.2.1 :003 > client = StytchB2B::Client.new(
+3.2.1 :004 >   project_id: 'project-test-68b28cb0-433c-4c00-ae98-c7c8f0d967b3',
+3.2.1 :005 >   secret: 'secret-test-UL7wWmHUZyz9jvofqToRfB9yH10UOgNDFp0='
+3.2.1 :006 > )
+3.2.1 :007 >
+3.2.1 :008 > resp = client.organizations.create(
+3.2.1 :009 >   organization_name: 'Example Org INC',
+3.2.1 :010 >   organization_slug: 'example-org-inc'
+3.2.1 :011 > )
+3.2.1 :012 >
+3.2.1 :013 >
+3.2.1 :014 > puts resp
+
+@organization_id = 'organization-test-4eecd774-c369-4aa6-bd12-4c3cb44bf7f4'
+email = 'mohammadshahnawazngp7+ak@gmail.com'
+resp = StytchClient.magic_links.email.login_or_signup(
+        email_address: email,
+        organization_id: @organization_id
+      )
+
+to get the session working need the member to be admin.
+
+
+
+      resp = StytchClient.magic_links.authenticate(token: params[:token])
